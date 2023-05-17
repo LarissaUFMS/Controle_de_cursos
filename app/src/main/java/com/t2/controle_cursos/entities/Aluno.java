@@ -4,32 +4,41 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "alunos",
+        foreignKeys = @ForeignKey(parentColumns = "cursoID", entity = Curso.class, childColumns = "cursoID", deferred = true ))
 public class Aluno {
     @PrimaryKey(autoGenerate = true)
     int alunoID;
-
-    @ForeignKey(entity = Curso.class, parentColumns = "cursoID", childColumns = "cursoID", deferred = true )
-    int cursoID;
     String nomeAluno;
+
+    int cursoID;
     String emailAluno;
     String telefoneAluno;
 
     //Inicío da declaração dos construtores
+    public Aluno() {}
+
     public Aluno(String nomeAluno) {
         this.nomeAluno = nomeAluno;
     }
 
-    public Aluno(String nomeAluno, String emailAluno) {
+    public Aluno(String nomeAluno, int cursoID) {
         this.nomeAluno = nomeAluno;
-        this.emailAluno = emailAluno;
+        this.cursoID = cursoID;
     }
 
-    public Aluno(String nomeAluno, String emailAluno, String telefoneAluno) {
+    public Aluno(String nomeAluno, int cursoID, String emailAluno) {
         this.nomeAluno = nomeAluno;
+        this.cursoID = cursoID;
+        this.emailAluno = emailAluno;
+    }
+    public Aluno(String nomeAluno, int cursoID, String emailAluno, String telefoneAluno) {
+        this.nomeAluno = nomeAluno;
+        this.cursoID = cursoID;
         this.emailAluno = emailAluno;
         this.telefoneAluno = telefoneAluno;
     }
+
     //Fim da declaração dos construtores
 
     //Início dos métodos get e set
