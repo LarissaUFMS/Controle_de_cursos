@@ -1,8 +1,10 @@
-package com.t2.controle_cursos;
+package com.t2.controle_cursos.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.t2.controle_cursos.R;
 
 public class MainActivity extends AppCompatActivity {
 
