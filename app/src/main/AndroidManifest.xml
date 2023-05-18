@@ -12,7 +12,18 @@
         android:theme="@style/Theme.Controle_de_cursos"
         tools:targetApi="31">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".CursoList"
+            android:exported="false" />
+        <activity
+            android:name=".AlunoList"
+            android:exported="false" />
+        <activity
+            android:name=".CelularList"
+            android:exported="false"
+            android:label="@string/title_activity_celular_list"
+            android:theme="@style/Theme.Controle_de_cursos.NoActionBar" />
+        <activity
+            android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
