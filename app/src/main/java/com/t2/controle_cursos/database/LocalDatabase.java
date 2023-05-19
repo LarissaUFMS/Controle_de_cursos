@@ -21,7 +21,7 @@ public class LocalDatabase {
         }
         return INSTANCE;
     }
-    public abstract AlunoDao celularModel();
-    public abstract CursoDao marcaModel();
-    public abstract AlunoCursoDao celularMarcaModel();
+    public abstract AlunoDao alunoModel();
+    public abstract CursoDao cursoModel();
+    public abstract AlunoCursoDao alunoCursoModel();
 }
