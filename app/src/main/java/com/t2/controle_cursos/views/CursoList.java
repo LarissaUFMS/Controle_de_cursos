@@ -2,13 +2,43 @@ package com.t2.controle_cursos.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+import com.t2.controle_cursos.database.LocalDatabase;
+import com.t2.controle_cursos.databinding.ActivityCursoListBinding;
+import com.t2.controle_cursos.entities.Curso;
+
+import java.util.List;
 
 public class CursoList extends AppCompatActivity {
 
+    private ActivityCursoListBinding binding;
+    private LocalDatabase db;
+    private List<Curso> cursos;
+    private ListView listViewCursos;
+    private Intent edtIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_curso_list);
+        binding = ActivityCursoListBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        db = LocalDatabase.getDatabase(getApplicationContext());
+        listViewCursos = binding.listCursos;
+
+        binding.btnHomeCurso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        binding.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CursoList.this, CursoView.class));
+            }
+        });
     }
 }
