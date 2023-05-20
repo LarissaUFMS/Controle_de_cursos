@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.t2.controle_cursos.views.databinding.FragmentFirstBinding;
+import com.t2.controle_cursos.R;
+import com.t2.controle_cursos.databinding.FragmentFirstBinding;
 
 public class FirstFragment extends Fragment {
 

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import com.t2.controle_cursos.dao.AlunoCursoDao;
 import com.t2.controle_cursos.dao.AlunoDao;
@@ -12,12 +13,13 @@ import com.t2.controle_cursos.entities.Aluno;
 import com.t2.controle_cursos.entities.Curso;
 
 @Database(entities = {Curso.class, Aluno.class}, version = 1)
-public class LocalDatabase {
-    private static LocalDatabase INSTANCE;
-    public static LocalDatabase getDatabase(Context context) {
+public abstract class CursosOnline extends RoomDatabase {
+    private static CursosOnline INSTANCE;
+    public static CursosOnline getDatabase(Context context) {
         if(INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                    LocalDatabase.class, "ControleCursos").allowMainThreadQueries().build();
+                    CursosOnline.class,
+                    "ControleCursos").allowMainThreadQueries().build();
         }
         return INSTANCE;
     }

@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import com.t2.controle_cursos.database.LocalDatabase;
+
+import com.t2.controle_cursos.database.CursosOnline;
 import com.t2.controle_cursos.databinding.ActivityCursoListBinding;
 import com.t2.controle_cursos.entities.Curso;
 
@@ -15,7 +16,7 @@ import java.util.List;
 public class CursoList extends AppCompatActivity {
 
     private ActivityCursoListBinding binding;
-    private LocalDatabase db;
+    private CursosOnline db;
     private List<Curso> cursos;
     private ListView listViewCursos;
     private Intent edtIntent;
@@ -25,7 +26,7 @@ public class CursoList extends AppCompatActivity {
         binding = ActivityCursoListBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        db = LocalDatabase.getDatabase(getApplicationContext());
+        db = com.t2.controle_cursos.database.CursosOnline.getDatabase(getApplicationContext());
         listViewCursos = binding.listCursos;
 
         binding.btnHomeCurso.setOnClickListener(new View.OnClickListener() {

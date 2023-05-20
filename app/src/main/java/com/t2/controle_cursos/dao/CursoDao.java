@@ -12,6 +12,10 @@ import java.util.List;
 
 @Dao
 public interface CursoDao {
+
+    @Query("SELECT * FROM cursos WHERE cursoID = :id LIMIT 1")
+    Curso getCurso (int id);
+
     @Query("SELECT * FROM cursos")
     List<Curso> getAll();
     @Insert
@@ -20,4 +24,5 @@ public interface CursoDao {
     void update(Curso curso);
     @Delete
     void delete(Curso curso);
+
 }

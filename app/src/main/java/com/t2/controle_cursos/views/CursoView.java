@@ -4,28 +4,20 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.t2.controle_cursos.database.LocalDatabase;
+import com.t2.controle_cursos.database.CursosOnline;
 import com.t2.controle_cursos.databinding.ActivityCursoViewBinding;
 
-import com.t2.controle_cursos.R;
 import com.t2.controle_cursos.entities.Curso;
 
 public class CursoView extends AppCompatActivity {
 
-    private LocalDatabase db;
+    private CursosOnline db;
     private ActivityCursoViewBinding binding;
 
     private int dbCursoID;
@@ -37,7 +29,7 @@ public class CursoView extends AppCompatActivity {
         binding = ActivityCursoViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        db = LocalDatabase.getDatabase(getApplicationContext());
+        db = CursosOnline.getDatabase(getApplicationContext());
         dbCursoID = getIntent().getIntExtra(
                 "CURSO_SELECIONADO_ID", -1);
     }
@@ -50,8 +42,8 @@ public class CursoView extends AppCompatActivity {
         }
     }
     private void getDBCurso() {
-        dbCurso = db.cursoModel().getCurso(dbCurosID);
-        binding.edtCurso.setText(dbCurso.getCurso());
+        dbCurso = db.cursoModel().getCurso(dbCursoID);//relacionado a curodao
+        binding.edtCurso.setText(dbCurso.getCursoID());//relacionado a curso
     }
 
     public void salvarCurso(View view) {

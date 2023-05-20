@@ -45,5 +45,8 @@ public class Curso {
     public void setQtdeHoras(int qtdeHoras) {
         this.qtdeHoras = qtdeHoras;
     }
+
+    public void setCursoID(int dbCursoID) {
+    }
     //Fim dos métodos get e set
 }
