@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.t2.controle_cursos.database.CursosOnline;
@@ -39,6 +41,28 @@ public class CursoList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CursoList.this, CursoView.class));
+            }
+        });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        edtIntent = new Intent(this, CursoView.class);
+        preencheCursos();
+    }
+    private void preencheCursos() {
+        cursos = db.cursoModel().getAll();
+        ArrayAdapter<Curso> cursosAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, cursos);
+        listViewCursos.setAdapter(cursosAdapter);
+
+        listViewCursos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Curso cursoselecionado = cursos.get(position);
+                edtIntent.putExtra("CURSO_SELECIONADO_ID",
+                        cursoselecionado.getCursoID());
+                startActivity(edtIntent);
             }
         });
     }

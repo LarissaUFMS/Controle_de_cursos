@@ -12,21 +12,19 @@
         android:theme="@style/Theme.Controle_de_cursos"
         tools:targetApi="31">
         <activity
-            android:name=".CursoView"
+            android:name=".AlunoView"
+            android:exported="false" />
+        <activity
+            android:name=".views.AlunoList"
+            android:exported="false" />
+        <activity
+            android:name=".views.CursoView"
             android:exported="false"
             android:label="@string/title_activity_curso_view"
             android:theme="@style/Theme.Controle_de_cursos.NoActionBar" />
         <activity
-            android:name=".CursoList"
+            android:name=".views.CursoList"
             android:exported="false" />
-        <activity
-            android:name=".AlunoList"
-            android:exported="false" />
-        <activity
-            android:name=".CelularList"
-            android:exported="false"
-            android:label="@string/title_activity_celular_list"
-            android:theme="@style/Theme.Controle_de_cursos.NoActionBar" />
         <activity
             android:name=".views.MainActivity"
             android:exported="true">
