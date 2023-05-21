@@ -9,20 +9,17 @@ import androidx.room.Update;
 import com.t2.controle_cursos.entities.Curso;
 
 import java.util.List;
-
 @Dao
 public interface CursoDao {
-
     @Query("SELECT * FROM cursos WHERE cursoID = :id LIMIT 1")
     Curso getCurso (int id);
-
     @Query("SELECT * FROM cursos")
     List<Curso> getAll();
     @Insert
-    void insertAll(Curso... cursos);
+    void insertAll(Curso... curso);
     @Update
-    void update(Curso curso);
+    void update(Curso cursos);
     @Delete
-    void delete(Curso curso);
+    void delete(Curso cursos);
 
 }

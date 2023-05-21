@@ -16,10 +16,8 @@ import com.t2.controle_cursos.databinding.ActivityCursoViewBinding;
 import com.t2.controle_cursos.entities.Curso;
 
 public class CursoView extends AppCompatActivity {
-
     private CursosOnline db;
     private ActivityCursoViewBinding binding;
-
     private int dbCursoID;
     private Curso dbCurso;
 
@@ -43,7 +41,7 @@ public class CursoView extends AppCompatActivity {
     }
     private void getDBCurso() {
         dbCurso = db.cursoModel().getCurso(dbCursoID);//relacionado a curodao
-        binding.edtCurso.setText(dbCurso.getCursoID());//relacionado a curso
+        binding.edtCurso.setText(dbCurso.getNomeCurso());//relacionado a curso
     }
 
     public void salvarCurso(View view) {
@@ -62,7 +60,7 @@ public class CursoView extends AppCompatActivity {
             Toast.makeText(this, "Curso atualizado com sucesso.", Toast.LENGTH_SHORT).show();
         } else {
             db.cursoModel().insertAll(thisCurso);
-            Toast.makeText(this, "Curso criada com sucesso.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Curso criado com sucesso.", Toast.LENGTH_SHORT).show();
         }
         finish();
     }
@@ -84,9 +82,9 @@ public class CursoView extends AppCompatActivity {
     private void excluir() {
         try {
             db.cursoModel().delete(dbCurso);
-            Toast.makeText(this, "Curso excluída com sucesso", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Curso excluído com sucesso", Toast.LENGTH_SHORT).show();
         } catch (SQLiteConstraintException e) {
-            Toast.makeText(this, "Impossível excluir Curso com celulares cadastrados", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Impossível excluir curso com celulares cadastrados", Toast.LENGTH_SHORT).show();
         }
         finish();
     }
