@@ -9,8 +9,12 @@ import androidx.room.Update;
 import com.t2.controle_cursos.entities.Aluno;
 
 import java.util.List;
+
 @Dao
 public interface AlunoDao {
+    @Query("SELECT * FROM alunos WHERE alunoID=:id LIMIT 1")
+    Aluno getAluno(int id);
+
     @Query("SELECT * FROM alunos")
     List<Aluno> getAll();
     @Insert
@@ -19,4 +23,5 @@ public interface AlunoDao {
     void update(Aluno aluno);
     @Delete
     void delete(Aluno aluno);
+
 }

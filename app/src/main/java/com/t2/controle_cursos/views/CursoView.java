@@ -40,7 +40,7 @@ public class CursoView extends AppCompatActivity {
         }
     }
     private void getDBCurso() {
-        dbCurso = db.cursoModel().getCurso(dbCursoID);//relacionado a curodao
+        dbCurso = db.cursoModel().getCurso(dbCursoID);//relacionado a cursodao
         binding.edtCurso.setText(dbCurso.getNomeCurso());//relacionado a curso
     }
 
