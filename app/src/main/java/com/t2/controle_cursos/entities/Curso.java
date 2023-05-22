@@ -34,8 +34,7 @@ public class Curso {
     public void setQtdeHoras(int qtdeHoras) {
         this.qtdeHoras = qtdeHoras;
     }
-    public void setCursoID(int dbCursoID) {
-    }
+    public void setCursoID(int cursoID) { this.cursoID = cursoID;}
     //Fim dos métodos get e set
 
     @Override
