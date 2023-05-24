@@ -10,6 +10,6 @@ public class AlunoCurso {
     }
     @Override
     public String toString(){
-        return this.alunoID + ": " + nomeAluno + "\nCurso: "+ nomeCurso;
+        return this.alunoID + ": " + this.nomeAluno + "\nCurso: "+ this.nomeCurso;
     }
 }

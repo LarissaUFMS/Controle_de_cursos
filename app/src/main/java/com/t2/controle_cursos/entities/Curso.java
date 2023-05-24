@@ -3,7 +3,7 @@ package com.t2.controle_cursos.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "cursos")
+@Entity
 public class Curso {
 
     @PrimaryKey(autoGenerate = true)
