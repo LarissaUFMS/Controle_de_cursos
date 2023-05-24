@@ -14,8 +14,9 @@ public class Curso {
     //Inicío da declaração dos construtores
     public Curso() {}
 
-    public Curso(String nomeCurso) {
+    public Curso(String nomeCurso, int qtdeHoras) {
         this.nomeCurso = nomeCurso;
+        this.qtdeHoras =qtdeHoras;
     }
 
     //Fim da declaração dos construtores

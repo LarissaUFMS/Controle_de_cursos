@@ -42,17 +42,19 @@ public class CursoView extends AppCompatActivity {
     private void getDBCurso() {
         dbCurso = db.cursoModel().getCurso(dbCursoID);//relacionado a cursodao
         binding.edtCurso.setText(dbCurso.getNomeCurso());//relacionado a curso
+        binding.edtHora.setText(dbCurso.getQtdeHoras());
     }
 
     public void salvarCurso(View view) {
         String nomeCurso = binding.edtCurso.getText().toString();
+        int qtdHoras = Integer.parseInt(binding.edtHora.getText().toString());
         if (nomeCurso.equals("")) {
             Toast.makeText(this, "Adicione um curso.",
                     Toast.LENGTH_SHORT).show();
             return;
         }
 
-        Curso thisCurso = new Curso(nomeCurso);
+        Curso thisCurso = new Curso(nomeCurso, qtdHoras);
 
         if (dbCurso != null) {
             thisCurso.setCursoID(dbCursoID);
