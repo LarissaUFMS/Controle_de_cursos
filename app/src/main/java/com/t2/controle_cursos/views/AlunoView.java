@@ -48,6 +48,8 @@ public class AlunoView extends AppCompatActivity {
     private void preencheAluno() {
         dbAluno = db.alunoModel().getAluno(dbAlunoID);
         binding.edtAluno.setText(dbAluno.getNomeAluno());
+        binding.edtEmail.setText(dbAluno.getEmailAluno());
+        binding.edtTelefone.setText(dbAluno.getTelefoneAluno());
     }
 
     private void preencheCursos() {
@@ -72,6 +74,9 @@ public class AlunoView extends AppCompatActivity {
 
     public void salvarAluno(View view) {
         String aluno = binding.edtAluno.getText().toString();
+        String email = binding.edtEmail.getText().toString();
+        String telefone = binding.edtTelefone.getText().toString();
+
         String novoCurso = "";
 
         if(spnCursos.getSelectedItem() != null){
@@ -90,6 +95,8 @@ public class AlunoView extends AppCompatActivity {
         novoAluno.setNomeAluno(aluno);
         novoAluno.setCursoID(cursos.get(
                 spnCursos.getSelectedItemPosition()).getCursoID());
+        novoAluno.setEmailAluno(email);
+        novoAluno.setTelefoneAluno(telefone);
         if(dbAluno != null){
             novoAluno.setAlunoID(dbAlunoID);
             db.alunoModel().update(novoAluno);
